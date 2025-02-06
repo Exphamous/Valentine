@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Restaurant</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script>
+        function selectRestaurant(restaurant) {
+            localStorage.setItem("selectedRestaurant", restaurant);
+            window.location.href = "calendar.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>💕 Pick a Restaurant 💕</h1>
+    <div class="options">
+        <button onclick="selectRestaurant('The Coop')">The Coop</button>
+        <button onclick="selectRestaurant('Korean BBQ')">Korean BBQ</button>
+        <button onclick="selectRestaurant('Sushi')">Sushi</button>
+        <button onclick="selectRestaurant('Mexican Food')">Mexican Food</button>
+        <button onclick="selectRestaurant('Italian Food')">Italian Food</button>
+        <button onclick="selectRestaurant('Thai Food')">Thai Food</button>
+        <button onclick="selectRestaurant('American BBQ')">American BBQ</button>
+        <button onclick="selectRestaurant('Burgers')">Burgers</button>
+        <button onclick="selectRestaurant('Hibachi')">Hibachi</button>
+    </div>
+</body>
+</html>

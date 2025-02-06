@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Valentine Date</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: red;
+        }
+        .details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+            color: darkred;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let restaurant = localStorage.getItem("selectedRestaurant") || "Not selected";
+            let date = localStorage.getItem("selectedDate") || "Not selected";
+            let time = localStorage.getItem("selectedTime") || "Not selected";
+            
+            document.getElementById("restaurant").textContent = restaurant;
+            document.getElementById("date").textContent = date;
+            document.getElementById("time").textContent = time;
+        });
+    </script>
+</head>
+<body>
+    <h1>💕 Your Valentine Date 💕</h1>
+    <div class="details">
+        <p>📍 Restaurant: <span id="restaurant"></span></p>
+        <p>📅 Date: <span id="date"></span></p>
+        <p>⏰ Time: <span id="time"></span></p>
+    </div>
+</body>
+</html>

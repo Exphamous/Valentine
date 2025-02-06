@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Date & Time</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: pink;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: red;
+        }
+        h2 {
+            color: darkred;
+        }
+        .selection {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label, input, button {
+            font-size: 18px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+        }
+        button:hover {
+            background-color: darkred;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let restaurant = localStorage.getItem("selectedRestaurant") || "your chosen place";
+            document.getElementById("selectedRestaurant").textContent = restaurant;
+        });
+        
+        function confirmSelection() {
+            let date = document.getElementById("date").value;
+            let time = document.getElementById("time").value;
+            if (date && time) {
+                localStorage.setItem("selectedDate", date);
+                localStorage.setItem("selectedTime", time);
+                window.location.href = "results.html";
+            } else {
+                alert("Please select both a date and time.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>💕 Choose a Date & Time 💕</h1>
+    <h2 id="selectedRestaurant"></h2>
+    <div class="selection">
+        <label for="date">Select a Date:</label>
+        <input type="date" id="date">
+        <label for="time">Select a Time:</label>
+        <input type="time" id="time">
+        <button onclick="confirmSelection()">💘 Confirm 💘</button>
+    </div>
+</body>
+</html>
